@@ -1,0 +1,58 @@
+# @token = 3d2637986218259783e449fd354f455fcd7a7a80
+@token = f5c3bf768117b9b74ad6be756d2abb2dc185bc24
+# @token = {{$processEnv token}}
+@protocolo = http
+@port = 80
+#@port = 
+@hostname = localhost
+#@hostname = products-api.olist.com
+# @host = {{$processEnv host}}
+@host = {{protocolo}}://{{hostname}}:{{port}}
+# @sku = PRDKQIOHPO0S1KEO
+@id = 1
+
+###
+# @name categoria-listar
+GET {{host}}/api/categoria/
+# content-type: application/json
+Content-Type: application/x-www-form-urlencoded
+Authorization: token {{token}}
+
+{
+    "name": "sample",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+###
+
+# @name categoria-by-id
+GET {{host}}/api/categoria/{{id}}/
+content-type: application/json
+Authorization: token {{token}}
+
+###
+# @name categoria-atualizar
+PUT {{host}}/api/categoria/{{id}}
+content-type: application/json
+# Content-Type: application/x-www-form-urlencoded
+# Authorization: token {{token}}
+
+{
+    "nome": "wilton",
+    "ativo": "1"
+}
+
+###
+# @name categoria-create
+POST {{host}}/api/categoria
+content-type: application/json
+Accept: aplication/json
+# Content-Type: application/x-www-form-urlencoded
+# Authorization: token {{token}}
+
+{
+    "nome": "Papelaria",
+    "ativo": "1"
+}
+
+###

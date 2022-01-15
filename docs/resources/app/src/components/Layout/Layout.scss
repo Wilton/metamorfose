@@ -1,0 +1,24 @@
+@import '../../assets/styles/app.scss';
+
+body {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--v-greyTint-base);
+    border-radius: 36px;
+    border: none;
+  }
+}
+
+.ajax-loading {
+  margin:0 !important;
+  height: 4px !important;
+  z-index: 1000;
+}
+.v-progress-linear {
+  margin:0 !important;
+}

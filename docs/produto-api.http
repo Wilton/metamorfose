@@ -1,0 +1,89 @@
+# @token = 3d2637986218259783e449fd354f455fcd7a7a80
+@token = f5c3bf768117b9b74ad6be756d2abb2dc185bc24
+# @token = {{$processEnv token}}
+@protocolo = http
+@port = 80
+#@port = 
+@hostname = localhost
+#@hostname = products-api.olist.com
+# @host = {{$processEnv host}}
+@host = {{protocolo}}://{{hostname}}:{{port}}
+# @sku = PRDKQIOHPO0S1KEO
+@id = 2
+
+###
+# @name produto-listar
+GET {{host}}/api/produto/
+content-type: application/json
+# Content-Type: application/x-www-form-urlencoded
+Authorization: token {{token}}
+
+{
+   
+}
+
+###
+# @name produto-pesquisar
+POST {{host}}/api/produto/pesquisar?page=1sortBy=nome&sortType=asc&per_page=-1
+content-type: application/json
+Authorization: token {{token}}
+
+###
+# @name produto-pesquisar
+POST {{host}}/api/produto/pesquisar/
+content-type: application/json
+# Content-Type: application/x-www-form-urlencoded
+Authorization: token {{token}}
+
+{
+   "codigo": "8919837294273"
+}
+
+###
+# @name produto-pesquisar-nome-marca
+POST {{host}}/api/produto/pesquisar/
+content-type: application/json
+# Content-Type: application/x-www-form-urlencoded
+# Authorization: token {{token}}
+
+{
+   "nome": "itaque",
+}
+###
+
+# @name produto-by-id
+GET {{host}}/api/produto/{{id}}/
+content-type: application/json
+Authorization: token {{token}}
+
+###
+# @name produto-atualizar
+PUT {{host}}/api/produto/{{id}}
+content-type: application/json
+# Content-Type: application/x-www-form-urlencoded
+# Authorization: token {{token}}
+
+{
+    "nome": "produto 1",
+    "ativo": "1"
+}
+
+###
+# @name produto-create
+POST {{host}}/api/produto
+content-type: application/json
+Accept: aplication/json
+# Content-Type: application/x-www-form-urlencoded
+# Authorization: token {{token}}
+
+{
+    "nome": "Papel A4 Resma",
+    "ativo": "1"
+}
+
+###
+# @name produto-alerta
+GET {{host}}/api/alerta/produto
+content-type: application/json
+Accept: aplication/json
+Authorization: token {{token}}

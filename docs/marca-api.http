@@ -1,0 +1,64 @@
+# @token = 3d2637986218259783e449fd354f455fcd7a7a80
+@token = f5c3bf768117b9b74ad6be756d2abb2dc185bc24
+# @token = {{$processEnv token}}
+@protocolo = http
+@port = 80
+#@port = 
+@hostname = localhost
+#@hostname = products-api.olist.com
+# @host = {{$processEnv host}}
+@host = {{protocolo}}://{{hostname}}:{{port}}
+# @sku = PRDKQIOHPO0S1KEO
+@id = 1
+
+###
+# @name marca-listar
+GET {{host}}/api/marca/
+# content-type: application/json
+Content-Type: application/x-www-form-urlencoded
+Authorization: token {{token}}
+
+{
+    "name": "sample",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+###
+
+# @name marca-by-id
+GET {{host}}/api/marca/{{id}}/
+content-type: application/json
+Authorization: token {{token}}
+
+###
+
+# @name marca-pesquisar
+POST {{host}}/api/marca/pesquisar?page=1sortBy=nomesortType=ascper_page=-1
+content-type: application/json
+Authorization: token {{token}}
+
+###
+# @name marca-atualizar
+PUT {{host}}/api/marca/{{id}}
+content-type: application/json
+# Content-Type: application/x-www-form-urlencoded
+# Authorization: token {{token}}
+
+{
+    "nome": "Faber-Castell",
+    "ativo": "1"
+}
+
+###
+# @name marca-create
+POST {{host}}/api/marca
+content-type: application/json
+Accept: aplication/json
+# Content-Type: application/x-www-form-urlencoded
+# Authorization: token {{token}}
+{
+    "nome": "BIC",
+    "ativo": "1"
+}
+
+###

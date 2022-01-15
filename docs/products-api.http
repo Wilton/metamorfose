@@ -1,0 +1,60 @@
+# @token = 3d2637986218259783e449fd354f455fcd7a7a80
+@token = f5c3bf768117b9b74ad6be756d2abb2dc185bc24
+# @token = {{$processEnv token}}
+@protocolo = http
+@port = 8004
+#@port = 
+@hostname = localhost
+#@hostname = products-api.olist.com
+# @host = {{$processEnv host}}
+@host = {{protocolo}}://{{hostname}}:{{port}}
+# @sku = PRDKQIOHPO0S1KEO
+@sku = PRDL7SE52ARLT4UR
+
+###
+POST {{host}}/v1/seller-products/PRDMBS1W8Z0HC8J8/
+content-type: application/json
+Authorization: token {{token}}
+
+{
+    "name": "sample",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+###
+
+# @name seller-products
+GET {{host}}/v1/seller-products/{{sku}}/
+content-type: application/json
+Authorization: token {{token}}
+
+###
+
+# @name seller-products
+PATCH  {{host}}/v1/seller-products/{{sku}}/
+content-type: application/json
+Authorization: token {{token}}
+
+{
+
+    "prices": [
+        {
+        "channel_slug": "b2w",
+        "currency": "BRL",
+        "minimum_quantity": 1,
+        "offer": "81.27",
+        "value": "81.27",
+        "price_freight_shift": "0.00",
+        "free_shipping_amount": "0.00",
+        "store_prices": [],
+        "commission_freight": null,
+        "commission_product": 1,
+        "enable_subsidy": false
+        }
+    ]
+
+}
+
+###
+
+
