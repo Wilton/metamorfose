@@ -60,3 +60,49 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## Academia de artes marciais
+
+## Sistema Atual
+
+mv .env.example .env
+
+CREATE USER 'sail'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'sail'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
+mysql -u sail -p laravel -P 3307 < Dump20211201_akimiami_prod.sql
+mysql -h 127.0.0.1 -P 3307 -u sail -p laravel < Dump20211201_akimiami_prod.sql
+
+
+sudo find . -type f -exec chmod 644 {} \;
+sudo find . -type d -exec chmod 755 {} \; 
+
+sudo chgrp -R www-data storage bootstrap/cache 
+sudo chmod -R ug+rwx storage bootstrap/cache
+
+sudo usermod -a -G www-data ubuntu 
+
+#### git
+
+
+sudo php artisan serve --port=80
+sudo apt install python3-pip
+
+
+
+#### Subindo o projeto
+
+
+```bash
+composer install
+sail up
+```
+
+
+```bash
+cd resources/app
+npm install
+yarn serve
+```
